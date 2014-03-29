@@ -5,9 +5,10 @@ export RABBITMQ_MNESIA_BASE=/opt/rabbitmq
 if [[ ! -f /opt/rabbitmq/initialized ]]; then
     mkdir -p /opt/rabbitmq
     cp -a /var/lib/rabbitmq/mnesia/* /opt/rabbitmq/
-    chown -R rabbitmq:rabbitmq /opt/rabbitmq
     touch /opt/rabbitmq/initialized
 fi
+chown -R rabbitmq:rabbitmq /opt/rabbitmq
+
 if [[ ! -z "$1" ]]; then
     /usr/sbin/rabbitmq-server -detached
     sleep 6
