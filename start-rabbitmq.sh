@@ -10,16 +10,16 @@ fi
 chown -R rabbitmq:rabbitmq /opt/rabbitmq
 
 if [[ ! -z "$1" ]]; then
-    /usr/sbin/rabbitmq-server -detached
+    /usr/lib/rabbitmq/bin/rabbitmq-server -detached
     sleep 6
     # add new user
-    rabbitmqctl add_user admin $1
-    rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
-    rabbitmqctl set_user_tags admin administrator
+    /usr/lib/rabbitmq/bin/rabbitmqctl add_user admin $1
+    /usr/lib/rabbitmq/bin/rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
+    /usr/lib/rabbitmq/bin/rabbitmqctl set_user_tags admin administrator
     # remove default user
-    rabbitmqctl delete_user guest
-    rabbitmqctl stop
+    /usr/lib/rabbitmq/bin/rabbitmqctl delete_user guest
+    /usr/lib/rabbitmq/bin/rabbitmqctl stop
     sleep 4
 fi
 
-/usr/sbin/rabbitmq-server
+/usr/lib/rabbitmq/bin/rabbitmq-server
