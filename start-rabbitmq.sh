@@ -1,7 +1,12 @@
 #!/bin/bash
 
-export RABBITMQ_NODENAME="rabbitmq@docker"
+export DB_DIR="rabbitmq@docker"
 export RABBITMQ_MNESIA_BASE=/opt/rabbitmq
+export RABBITMQ_MNESIA_DIR="$RABBITMQ_MNESIA_BASE/$DB_DIR"
+export RABBITMQ_LOGS="$RABBITMQ_MNESIA_BASE/$DB_DIR.log"
+export RABBITMQ_SASL_LOGS="$RABBITMQ_MNESIA_BASE/$DB_DIR-sasl.log"
+export RABBITMQ_PLUGINS_EXPAND_DIR="$RABBITMQ_MNESIA_BASE/$DB_DIR-plugins-expand"
+export RABBITMQ_PID_FILE="$RABBITMQ_MNESIA_BASE/$DB_DIR.pid"
 
 if [[ ! -f /opt/rabbitmq/initialized ]]; then
     mkdir -p /opt/rabbitmq
