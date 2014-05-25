@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export RABBITMQ_NODENAME="rabbitmq@docker"
 export RABBITMQ_MNESIA_BASE=/opt/rabbitmq
 
 if [[ ! -f /opt/rabbitmq/initialized ]]; then
