@@ -22,4 +22,5 @@ if [[ ! -z "$1" ]]; then
     sleep 4
 fi
 
+[ -f /etc/default/rabbitmq-server ] && . /etc/default/rabbitmq-server
 /usr/lib/rabbitmq/bin/rabbitmq-server
