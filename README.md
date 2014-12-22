@@ -4,7 +4,7 @@ RabbitMQ Dockerfile
 Build
 -----
 ```
-docker build -t dokku/rabbitmq github.com/jlachowski/dokku-rabbitmq-dockerfiles.git
+docker build -t dokku/rabbitmq github.com/motymichaely/dokku-rabbitmq-dockerfiles.git
 ```
 
 Usage
@@ -16,7 +16,7 @@ docker run -p 5672 -p 15672 -d dokku/rabbitmq /usr/bin/start-rabbitmq.sh <admin 
 
 Start with persistent database (`<volume>` - host directory)
 ```
-docker run -v <volume>:/opt/rabbitmq -p 5672 -p 15672 -d dokku/rabbitmq /usr/bin/start-rabbitmq.sh <admin password>
+docker run -v <volume>:/opt/rabbitmq -h <hostname> -p 5672 -p 15672 -d dokku/rabbitmq /usr/bin/start-rabbitmq.sh <admin password>
 ```
 
 TODO:
