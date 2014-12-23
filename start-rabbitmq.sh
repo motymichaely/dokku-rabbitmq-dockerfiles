@@ -12,6 +12,8 @@ chown -R rabbitmq:rabbitmq /opt/rabbitmq
 if [[ ! -z "$1" ]]; then
     /usr/lib/rabbitmq/bin/rabbitmq-server -detached
     sleep 6
+    # add virtual host
+    /usr/lib/rabbitmq/bin/rabbitmqctl add_vhost /
     # add new user
     /usr/lib/rabbitmq/bin/rabbitmqctl add_user admin $1 || /usr/lib/rabbitmq/bin/rabbitmqctl change_password admin $1
     /usr/lib/rabbitmq/bin/rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
